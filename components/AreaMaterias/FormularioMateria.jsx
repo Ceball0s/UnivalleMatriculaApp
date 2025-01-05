@@ -26,7 +26,6 @@ const FormularioMateria = ({ onSubmit }) => {
 
   return (
     <>
-      {/* Botón para abrir el modal */}
       <Pressable style={styles.openButton} onPress={() => setModalVisible(true)}>
         <Text style={styles.openButtonText}>+ Agregar Materia</Text>
       </Pressable>
@@ -54,15 +53,17 @@ const FormularioMateria = ({ onSubmit }) => {
               value={grupo}
               onChangeText={setGrupo}
             />
-            <Pressable style={styles.button} onPress={handlePress}>
-              <Text style={styles.buttonText}>Agregar Materia</Text>
-            </Pressable>
-            <Pressable
-              style={[styles.button, styles.cancelButton]}
-              onPress={() => setModalVisible(false)}
-            >
-              <Text style={styles.buttonText}>Cancelar</Text>
-            </Pressable>
+            <View style={{flexDirection: 'row', justifyContent: "space-between",}}>
+              <Pressable style={styles.button} onPress={handlePress}>
+                <Text style={styles.buttonText}>Agregar Materia</Text>
+              </Pressable>
+              <Pressable
+                style={[styles.button, styles.cancelButton]}
+                onPress={() => setModalVisible(false)}
+              >
+                <Text style={styles.buttonText}>Cancelar</Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </Modal>
@@ -72,27 +73,30 @@ const FormularioMateria = ({ onSubmit }) => {
 
 const styles = StyleSheet.create({
   openButton: {
-    backgroundColor: "#007BFF",
-    padding: 12,
-    borderRadius: 4,
+    backgroundColor: "rgb(   194, 223, 255   )",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderTopLeftRadius: 30,  // Redondea la esquina superior izquierda
+    borderTopRightRadius: 30, // Redondea la esquina superior derecha
+    borderBottomLeftRadius: 0, // Sin redondear la esquina inferior izquierda
+    borderBottomRightRadius: 0, // Sin redondear la esquina inferior derecha
     alignItems: "center",
-    marginBottom: 16,
+    marginBottom: 0,
   },
   openButtonText: {
-    color: "#fff",
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
   },
   modalOverlay: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0.38)",
   },
   modalContainer: {
-    width: "80%",
+    width: "90%",
     padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "rgb(255, 255, 255)",
     borderRadius: 8,
     elevation: 3,
   },
@@ -110,17 +114,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    backgroundColor: "#007BFF",
+    backgroundColor: "rgb(0,123,255)",
     padding: 12,
     borderRadius: 4,
     alignItems: "center",
     marginBottom: 8,
   },
   cancelButton: {
-    backgroundColor: "#FF4C4C",
+    backgroundColor: "rgb(255,76,76)",
   },
   buttonText: {
-    color: "#fff",
+    color: "rgb(255,255,255)",
     fontSize: 16,
     fontWeight: "bold",
   },

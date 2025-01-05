@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Puedes cambiar el ícono por otros disponibles en la biblioteca
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 const Materia = ({ materia, nombre = 'Desconocida', icono = 'book' }) => {
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', // Esto coloca el ícono y el texto en una fila
     display: 'flex',
     padding: 10,
-    // backgroundColor: 'rgb(255, 255, 255)',
+    backgroundColor: 'rgb(255, 255, 255)',
     borderRadius: 8,
     marginVertical: 5,
     alignItems: 'center', // Centra verticalmente los elementos
