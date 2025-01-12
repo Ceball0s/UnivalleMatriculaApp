@@ -3,13 +3,16 @@ import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-const Materia = ({ materia, nombre = 'Desconocida', icono = 'book' }) => {
+const Materia = ({ materia }) => {
+
+  const nombre = materia && materia.nombre ? materia.nombre : 'Desconocida';
+  const icono = materia && materia.icono ? materia.icono : 'book';
 
   return (
     <View style={styles.container}>
       <Icon name={icono} size={30} color="#4CAF50" style={styles.icon} />
       <View style={styles.textContainer}>
-        <Text style={styles.nombre}>{nombre.slice(0,7)}...</Text>
+        <Text style={styles.nombre}>{nombre.slice(0,10)}...</Text>
         <View style={styles.codigosContainer}>
           <Text style={styles.codigo}>Código: {materia.codigo}</Text>
           <Text style={styles.grupo}>Grupo: {materia.grupo}</Text>

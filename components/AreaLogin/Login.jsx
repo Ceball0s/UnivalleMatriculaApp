@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { View, TextInput, Text, Pressable, StyleSheet, Alert } from "react-native";
+import React, { useContext } from "react";
+import { View, KeyboardAvoidingView, Text, Pressable, StyleSheet, Alert, Platform } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
+import InputField from "./InputField";
+import { UserContext } from "../../contexts/UserContext";
 
-const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar contraseña
+const Login = ({ color }) => {
+  const { username, setUsername, password, setPassword } = useContext(UserContext);
+  
 
   const handleLogin = () => {
     if (username === "" || password === "") {
@@ -19,43 +21,43 @@ const Login = () => {
   };
 
   return (
-    <View>
-      <View style={{backgroundColor: 'rgb(0, 100, 207)', marginBottom:20 }}>
-        <Text style={styles.titulo}>Inicio de Sesión</Text>
-        <Pressable style={styles.roundedButton}>
-          <Text style={styles.buttonText}></Text>
-        </Pressable>
-      </View>
-      <View style={styles.container}>
-        <TextInput
-          style={styles.input}
-          placeholder="Usuario"
-          value={username}
-          onChangeText={setUsername}
-        />
-        <View style={styles.passwordContainer}>
-          <TextInput
-            style={[styles.input, { flex: 1 }]}
-            placeholder="Contraseña"
-            secureTextEntry={!showPassword} // Cambia la visibilidad según el estado
-            value={password}
-            onChangeText={setPassword}
-          />
-          <Pressable
-            style={styles.toggleButton}
-            onPress={() => setShowPassword(!showPassword)}
-          >
-            <Text style={styles.toggleButtonText}>
-              {showPassword ? "Ocultar" : "Mostrar"}
-            </Text>
-          </Pressable>
+    <KeyboardAvoidingView
+      
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+       <View style={{ backgroundColor: color, marginBottom: 20, }}>
+        <View style= {{flexDirection: 'row', alignItems: "center", justifyContent: 'space-between',}}>
+          <View style= {{ marginVertical: 50 }}>
+            <Text style={styles.titulo}>Inicio</Text>
+            <Text style={styles.titulo}>de Sesión</Text>
+          </View>
+          <Icon name="user-circle" size={100} color="white" style={styles.icon} />
         </View>
-        <Pressable style={styles.saveButton} onPress={handleSave}>
+        <View style={styles.roundedButton}>
+        </View>  
+      </View>
+      
+      <View style={styles.container}>
+      
+        <InputField
+          label="Usuario"
+          placeholder="Ingresa tu usuario"
+          inputValue={username}
+          setInputValue={setUsername}
+        />
+        <InputField
+          label="Contraseña"
+          isPassword
+          placeholder="Ingresa tu contraseña"
+          inputValue={password}
+          setInputValue={setPassword}
+        />
+        <Pressable style={[styles.saveButton, { backgroundColor: color }]} onPress={handleSave}>
           <Text style={styles.buttonText}>Guardar</Text>
         </Pressable>
       </View>
 
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -68,37 +70,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
   },
-  passwordContainer: {
-    width: "80%",
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 15,
-  },
-  toggleButton: {
-    marginLeft: 10,
-    padding: 10,
-    backgroundColor: "rgb(0, 100, 207)",
-    borderRadius: 5,
-  },
   titulo: {
     textDecoration: 'underline',
     fontSize: 25,
     fontFamily: "Georgia", // Puedes cambiar a cualquier fuente que prefieras
     color: "white", // Color blanco
-    textAlign: 'center',
-    marginTop: 50, // Espacio superior
-    marginHorizontal: 30,
-    marginBottom:40
+    // marginTop: 30, // Espacio superior
+    marginLeft:30,
+    // marginRight: 50,
+    marginHorizontal: 10,
   },
-  input: {
-    width: "80%",
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 15,
-    paddingHorizontal: 10,
-    backgroundColor: "#fff",
+  icon: {
+    // marginTop: 20,
+    justifyContent: 'flex-end',
+    marginRight: 30,
+
   },
   roundedButton: {
     backgroundColor: "rgb(255, 255, 255)",
@@ -109,13 +95,17 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 0, // Sin redondear la esquina inferior izquierda
     borderBottomRightRadius: 0, // Sin redondear la esquina inferior derecha
     alignItems: "center",
+    marginBottom: 0,
+    height: 40
   },
   saveButton: {
-    backgroundColor: "rgb(100, 207, 0)", // Color diferente para el botón de guardar
+    // backgroundColor: "rgb(100, 207, 0)", // Color diferente para el botón de guardar
+    marginTop: 10,
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 20, // Bordes completamente redondeados
     alignItems: "center",
+    width: "80%",
   },
   buttonText: {
     color: "#fff",

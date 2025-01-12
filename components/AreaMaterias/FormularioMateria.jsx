@@ -6,6 +6,7 @@ import {
   Pressable,
   StyleSheet,
   Modal,
+  Alert,
 } from "react-native";
 
 const FormularioMateria = ({ onSubmit }) => {
@@ -20,7 +21,7 @@ const FormularioMateria = ({ onSubmit }) => {
       setGrupo("");
       setModalVisible(false); // Cierra el modal al agregar la materia
     } else {
-      alert("Por favor, completa ambos campos.");
+      Alert.alert("Por favor, completa ambos campos.");
     }
   };
 
