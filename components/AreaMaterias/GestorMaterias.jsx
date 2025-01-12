@@ -9,7 +9,7 @@ import FormularioMateria from './FormularioMateria';
 import Materia  from './Materia';
 import CargarMateriasPorExcel from './CargarMateriasPorExcel';
 import { MateriasContext } from "../../contexts/MateriasContext";
-import { obtenerNombreAsignatura } from "../../Servicios/ApiSira";
+import { obtenerNombreAsignatura } from "../../services/ApiSira";
 
 const GestorMaterias = () => {
   const { materias, setMaterias } = useContext(MateriasContext);

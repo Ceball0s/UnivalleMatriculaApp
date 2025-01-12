@@ -33,7 +33,6 @@ const CargarMateriasPorExcel = ({ onSubmit }) => {
       onSubmit(materias)
 
       setModalVisible(false); 
-      // Alert.alert("Archivo seleccionado", `Nombre: ${file.name}\nTamaño: ${file.size} bytes`);
     } catch (error) {
       Alert.alert("Error", error.message);
     }
@@ -46,7 +45,7 @@ const CargarMateriasPorExcel = ({ onSubmit }) => {
         style={styles.openButton}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={styles.openButtonText}>+ Cargar Excel       </Text>
+        <Text style={styles.openButtonText}>+ Cargar Materias Excel</Text>
       </TouchableOpacity>
 
       {/* Modal para cargar materias */}

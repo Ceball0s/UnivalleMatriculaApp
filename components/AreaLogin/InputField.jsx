@@ -46,13 +46,8 @@ const InputField = ({ label,
 
 const styles = StyleSheet.create({
   container: {
-    // marginVertical: 10,
-    // paddingHorizontal: 15,
     width: "80%",
-    // height: 50,
     borderColor: "gray",
-    // borderWidth: 1,
-    // borderRadius: 30,
     paddingHorizontal: 5,
     backgroundColor: "#fff",
     marginBottom: 10,

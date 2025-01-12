@@ -6,15 +6,6 @@ import { UserContext } from "../../contexts/UserContext";
 
 const Login = ({ color }) => {
   const { username, setUsername, password, setPassword } = useContext(UserContext);
-  
-
-  const handleLogin = () => {
-    if (username === "" || password === "") {
-      Alert.alert("Error", "Por favor, completa todos los campos.");
-      return;
-    }
-    // Alert.alert("Inicio de sesión exitoso", `Usuario: ${username}`);
-  };
 
   const handleSave = () => {
     Alert.alert("Guardado", "Tu información ha sido guardada.");
@@ -22,10 +13,9 @@ const Login = ({ color }) => {
 
   return (
     <KeyboardAvoidingView
-      
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-       <View style={{ backgroundColor: color, marginBottom: 20, }}>
+      <View style={{ backgroundColor: color }}>
         <View style= {{flexDirection: 'row', alignItems: "center", justifyContent: 'space-between',}}>
           <View style= {{ marginVertical: 50 }}>
             <Text style={styles.titulo}>Inicio</Text>
@@ -38,7 +28,6 @@ const Login = ({ color }) => {
       </View>
       
       <View style={styles.container}>
-      
         <InputField
           label="Usuario"
           placeholder="Ingresa tu usuario"
