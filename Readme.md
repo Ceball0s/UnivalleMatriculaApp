@@ -1,5 +1,7 @@
-![](assets/logo.png)
-# UnivalleMatriculaApp 📚
+<div align="center">
+  <img src="./assets/Logo.png" width="200" alt="Logo" />
+  <h1>UnivalleMatriculaApp 📚</h1>
+</div>
 
 **Plantilla para una app de matriculaciones** diseñada para gestionar materias y temas de forma simple.  
 Esta versión no incluye la funcionalidad de matrícula, ya que está reservada para la versión completa.
@@ -11,12 +13,6 @@ Esta versión no incluye la funcionalidad de matrícula, ya que está reservada 
 - **Inicio de Sesión:** Accede fácilmente a tu cuenta.
 - **Gestión de Materias:** Agrega y organiza materias.
 - **Cambio de Tema:** Alterna entre temas claros y oscuros para una experiencia personalizada.
-
----
-
-## Capturas de Pantalla 📸
-
-*(Incluye aquí capturas de pantalla relevantes de tu aplicación.)*
 
 ---
 
@@ -32,21 +28,21 @@ Esta versión no incluye la funcionalidad de matrícula, ya que está reservada 
 
 ### 1. Clona el repositorio:
 ```bash
-    git clone https://github.com/Ceball0s/UnivalleMatriculaApp.git
-    cd UnivalleMatriculaApp
+git clone https://github.com/Ceball0s/UnivalleMatriculaApp.git
+cd UnivalleMatriculaApp
 ```
 
 ### 2. Instala las dependencias
 ```bash
-    npm install
+npm install
 ```
 ### 3. Ejecuta la app en modo desarrollo:
 ```bash
-    npx expo start
+npx expo start
 ```
 ### 4. Genera el APK ( debes iniciar session en expo ):
 ```bash
-    eas build --platform android --profile preview
+eas build --platform android --profile preview
 ```
 ## Versión Completa 🔑
 
