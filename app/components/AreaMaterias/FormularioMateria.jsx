@@ -9,26 +9,34 @@ import {
   Alert,
 } from "react-native";
 
-const FormularioMateria = ({ onSubmit }) => {
+// Componente del formulario para agregar una materia
+const FormularioMateria = ({ onSubmit, theme }) => {
+  // Definición de estados locales para el código, grupo y visibilidad del modal
   const [codigo, setCodigo] = useState("");
   const [grupo, setGrupo] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
 
+  // Maneja el evento de presionar el botón para agregar una materia
   const handlePress = () => {
     if (codigo.trim() && grupo.trim()) {
+      // Llama a la función onSubmit con los valores del formulario
       onSubmit({ codigo, grupo });
+      // Reinicia los campos del formulario
       setCodigo("");
       setGrupo("");
-      setModalVisible(false); // Cierra el modal al agregar la materia
+      // Cierra el modal
+      setModalVisible(false); 
     } else {
+      // Muestra una alerta si los campos están vacíos
       Alert.alert("Por favor, completa ambos campos.");
     }
   };
 
   return (
     <>
-      <Pressable style={styles.openButton} onPress={() => setModalVisible(true)}>
-        <Text style={styles.openButtonText}>+ Agregar Materia</Text>
+      {/* Botón para abrir el modal */}
+      <Pressable style={[styles.openButton, theme.buttonGestor]} onPress={() => setModalVisible(true)}>
+        <Text style={[styles.openButtonText, theme.buttonGestor]}>+ Agregar Materia</Text>
       </Pressable>
 
       {/* Modal */}
@@ -39,18 +47,20 @@ const FormularioMateria = ({ onSubmit }) => {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalOverlay}>
-          <View style={styles.modalContainer}>
-            <Text style={styles.label}>Código de la Materia:</Text>
+          <View style={[styles.modalContainer, theme.main]}>
+            <Text style={[styles.label, theme.main]}>Código de la Materia:</Text>
             <TextInput
-              style={styles.input}
+              style={[styles.input, theme.inputLabel]}
               placeholder="Ejemplo: MAT101"
+              placeholderTextColor={theme.main.color}
               value={codigo}
               onChangeText={setCodigo}
             />
-            <Text style={styles.label}>Grupo:</Text>
+            <Text style={[styles.label, theme.main]}>Grupo:</Text>
             <TextInput
-              style={styles.input}
+              style={[styles.input, theme.inputLabel]}
               placeholder="Ejemplo: 50"
+              placeholderTextColor={theme.main.color}
               value={grupo}
               onChangeText={setGrupo}
             />
@@ -72,9 +82,9 @@ const FormularioMateria = ({ onSubmit }) => {
   );
 };
 
+// Estilos para el formulario
 const styles = StyleSheet.create({
   openButton: {
-    backgroundColor: "rgb(   194, 223, 255   )",
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderTopLeftRadius: 30,  // Redondea la esquina superior izquierda
@@ -115,14 +125,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    backgroundColor: "rgb(0,123,255)",
+    backgroundColor: "rgb(1 99 204)",
     padding: 12,
     borderRadius: 4,
     alignItems: "center",
     marginBottom: 8,
   },
   cancelButton: {
-    backgroundColor: "rgb(255,76,76)",
+    backgroundColor: "rgb(255 27 27)",
   },
   buttonText: {
     color: "rgb(255,255,255)",

@@ -8,25 +8,32 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const InputField = ({ label,
-    isPassword = false,
-    placeholder,
-    inputValue,
-    setInputValue,
+// Componente InputField que maneja campos de texto y contraseñas
+const InputField = ({
+  label, // Etiqueta para el campo de entrada
+  isPassword = false, // Indica si el campo es para una contraseña
+  placeholder, // Texto de marcador de posición
+  inputValue, // Valor del campo de entrada
+  setInputValue, // Función para actualizar el valor del campo de entrada
+  theme, // Tema actual (claro u oscuro)
 }) => {
-  const [showPassword, setShowPassword] = useState(false);
-
+  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
+  
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
-      <View style={styles.inputContainer}>
+      {/* Etiqueta del campo de entrada */}
+      <Text style={[styles.label, theme.main]}>{label}</Text>
+      <View style={[theme.inputLabel, styles.inputContainer]}>
+        {/* Campo de entrada de texto */}
         <TextInput
-          style={[styles.input]}
+          style={[styles.input, theme.inputLabel]}
           placeholder={placeholder}
+          placeholderTextColor={theme.main.color}
           secureTextEntry={isPassword && !showPassword}
           value={inputValue}
           onChangeText={setInputValue}
         />
+        {/* Icono para mostrar/ocultar la contraseña */}
         {isPassword && inputValue && (
           <TouchableOpacity
             onPress={() => setShowPassword(!showPassword)}
@@ -44,26 +51,24 @@ const InputField = ({ label,
   );
 };
 
+// Estilos para el componente InputField
 const styles = StyleSheet.create({
   container: {
     width: "80%",
     borderColor: "gray",
     paddingHorizontal: 5,
-    backgroundColor: "#fff",
     marginBottom: 10,
   },
   label: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#333",
     marginBottom: 10,
   },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#f9f9f9",
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#000000",
     borderRadius: 8,
     paddingHorizontal: 10,
   },
@@ -71,7 +76,6 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     fontSize: 16,
-    color: "#333",
   },
   iconContainer: {
     position: "absolute",

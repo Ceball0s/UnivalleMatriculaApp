@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { View, Text, Modal, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import * as DocumentPicker from "expo-document-picker";
 import { loadExcelFile } from "../../utils/excelHandler";
-import Materia from "./Materia";
 
-
-const CargarMateriasPorExcel = ({ onSubmit }) => {
+const CargarMateriasPorExcel = ({ onSubmit, color, theme }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   // Función para manejar la selección del archivo
@@ -42,10 +40,10 @@ const CargarMateriasPorExcel = ({ onSubmit }) => {
     <View>
       {/* Botón para abrir el modal */}
       <TouchableOpacity
-        style={styles.openButton}
+        style={[styles.openButton, theme.buttonGestor]}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={styles.openButtonText}>+ Cargar Materias Excel</Text>
+        <Text style={[styles.openButtonText, theme.buttonGestor]}>+ Cargar Materias Excel</Text>
       </TouchableOpacity>
 
       {/* Modal para cargar materias */}
@@ -56,9 +54,9 @@ const CargarMateriasPorExcel = ({ onSubmit }) => {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Cargar Materias</Text>
-            <Text style={styles.modalDescription}>
+          <View style={[styles.modalContent, theme.inputLabel]}>
+            <Text style={[styles.modalTitle, theme.inputLabel] }>Cargar Materias</Text>
+            <Text style={[styles.modalDescription, theme.inputLabel]}>
               Selecciona un archivo Excel con las materias que deseas cargar.
             </Text>
 
@@ -84,7 +82,7 @@ const CargarMateriasPorExcel = ({ onSubmit }) => {
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", alignItems: "center" },
   openButton: {
-    backgroundColor: "rgb(   194, 223, 255   )",
+    // backgroundColor: "rgb(   194, 223, 255   )",
     paddingVertical: 15,
     paddingHorizontal: 20,
     alignItems: "center",
