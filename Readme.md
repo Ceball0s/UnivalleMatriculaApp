@@ -46,7 +46,7 @@ eas build --platform android --profile preview
 ```
 
 ## Área de Screenshots 📸
-<div align="center"> <h2>Vista Previa de la App</h2> <img src="./Screenshots/screenshot1.png" alt="Pantalla de Inicio de sesion" width="300" /> <img src="./Screenshots/screenshot2.png" alt="Gestión de Materias" width="300" /> <img src="./Screenshots/screenshot3.png" alt="Zona Matriculacion" width="300" /> </div>
+<div align="center"> <h2>Vista Previa de la App</h2> <img src="./Screenshots/screenshot1.jpeg" alt="Pantalla de Inicio de sesion" width="300" /> <img src="./Screenshots/screenshot2.jpeg" alt="Gestión de Materias" width="300" /> <img src="./Screenshots/screenshot3.jpeg" alt="Zona Matriculacion" width="300" /> </div>
 
 ## Versión Completa 🔑
 
