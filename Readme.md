@@ -44,6 +44,10 @@ npx expo start
 ```bash
 eas build --platform android --profile preview
 ```
+
+## Área de Screenshots 📸
+<div align="center"> <h2>Vista Previa de la App</h2> <img src="./Screenshots/screenshot1.png" alt="Pantalla de Inicio de sesion" width="300" /> <img src="./Screenshots/screenshot2.png" alt="Gestión de Materias" width="300" /> <img src="./Screenshots/screenshot3.png" alt="Zona Matriculacion" width="300" /> </div>
+
 ## Versión Completa 🔑
 
 Para obtener la versión completa de la app, que incluye la funcionalidad de matrícula, por favor contáctanos:
