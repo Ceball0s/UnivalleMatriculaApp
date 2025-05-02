@@ -25,8 +25,10 @@ const CargaMatricula = () => {
 
   // Crear una lista de tareas basada en las materias
   const ListaMaterias = materias.map((materia, index) => ({
-    id: index + 3, // Generar un ID único
+    id: `${materia.codigo} ${materia.grupo}`, // Generar un ID único
     name: `${materia.codigo} ${materia.grupo}`, // Combinar código y grupo
+    codigo: materia.codigo, // Código de la materia
+    grupo: materia.grupo, // Grupo de la materia
     status: "pending", // Estado inicial
     details: `Esperando turno.`, // Detalles personalizados
   }));
@@ -81,7 +83,7 @@ const CargaMatricula = () => {
           let tarea = tasks[index];
           tarea.status = 'loading';
           setTasks([...tasks.slice(0, index), tarea, ...tasks.slice(index + 1, tasks.length)]);
-          let salida = await Matricular(tarea.name, (descripcion) => {
+          let salida = await Matricular(tarea, Cookies, (descripcion) => {
             modificar_descripcion(index, descripcion);
           });
           salida ? salida = "success" : salida = "error"

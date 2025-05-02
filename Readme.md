@@ -3,16 +3,16 @@
   <h1>UnivalleMatriculaApp 📚</h1>
 </div>
 
-**Plantilla para una app de matriculaciones** diseñada para gestionar materias y temas de forma simple.  
-Esta versión no incluye la funcionalidad de matrícula, ya que está reservada para la versión completa.
+**Aplicación de matriculación** diseñada para gestionar materias y **matricularlas rápidamente en el SIRA**.
 
 ---
 
 ## Características 🌟
 
-- **Inicio de Sesión:** Accede fácilmente a tu cuenta.
-- **Gestión de Materias:** Agrega y organiza materias.
-- **Cambio de Tema:** Alterna entre temas claros y oscuros para una experiencia personalizada.
+- **Inicio de Sesión:** Accede fácilmente a tu cuenta de estudiante.
+- **Gestión de Materias:** Agrega, organiza y elimina materias según tus necesidades.
+- **Matriculación Rápida:** Envía tus materias directamente al SIRA con un solo clic.
+- **Cambio de Tema:** Alterna entre tema claro y oscuro para una experiencia personalizada.
 
 ---
 
@@ -48,8 +48,4 @@ eas build --platform android --profile preview
 ## Área de Screenshots 📸
 <div align="center"> <h2>Vista Previa de la App</h2> <img src="./Screenshots/screenshot1.jpeg" alt="Pantalla de Inicio de sesion" width="300" /> <img src="./Screenshots/screenshot2.jpeg" alt="Gestión de Materias" width="300" /> <img src="./Screenshots/screenshot3.jpeg" alt="Zona Matriculacion" width="300" /> </div>
 
-## Versión Completa 🔑
 
-Para obtener la versión completa de la app, que incluye la funcionalidad de matrícula, por favor contáctanos:
-
-📧 Email: univallematriculaapp@outlook.com
